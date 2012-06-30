@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>jbwdemo-application</artifactId>
+
+  <parent>
+    <groupId>org.jboss.jbw.keynote2012</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+
+  <packaging>ear</packaging>
+
+  <name>Keynote Application for JBoss World 2012</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-utils</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-errai-model</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-services</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-client</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-leaderboard</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-admin</artifactId>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-admin-model</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>jbwdemo</finalName>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <modules>
+            <webModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-services</artifactId>
+              <contextRoot>/jbossworld</contextRoot>
+            </webModule>
+            <webModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-client</artifactId>
+              <contextRoot>/jbossworld-client</contextRoot>
+            </webModule>
+            <webModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-leaderboard</artifactId>
+              <contextRoot>/jbossworld-leaderboard</contextRoot>
+            </webModule>
+            <webModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-admin</artifactId>
+              <contextRoot>/jbossworld-admin</contextRoot>
+            </webModule>
+            <jarModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-model</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+            <jarModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-errai-model</artifactId>
+              <bundleDir>lib</bundleDir>
+            </jarModule>
+            <jarModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-admin-model</artifactId>
+              <bundleDir>lib</bundleDir>
+            </jarModule>
+            <jarModule>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>jbwdemo-utils</artifactId>
+              <includeInApplicationXml>true</includeInApplicationXml>
+            </jarModule>
+          </modules>
+        </configuration>
+      </plugin>
+      <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
+      <!-- To use, run: mvn package jboss-as:deploy -->
+      <plugin>
+          <groupId>org.jboss.as.plugins</groupId>
+          <artifactId>jboss-as-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<processStatistics>
+	<processesStarted>2</processesStarted>
+	<processesCompleted>2</processesCompleted>
+	<nodeCounts>
+		<entry>
+			<key>_0311431E-90BC-49B9-982E-8DDF38F08933</key>
+			<value>2</value>
+		</entry>
+		<entry>
+			<key>_3E200A54-C599-4B55-A8AD-B2007D3D543C</key>
+			<value>1</value>
+		</entry>
+		<entry>
+			<key>_B6C27099-51C6-4CD5-80C0-6981DA677705</key>
+			<value>1</value>
+		</entry>
+		<entry>
+			<key>_C38E5983-89D6-4C32-BB9D-542E8681873D</key>
+			<value>0</value>
+		</entry>
+	</nodeCounts>
+</processStatistics>

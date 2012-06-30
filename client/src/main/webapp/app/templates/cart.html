@@ -1,0 +1,43 @@
+<!-- Header -->
+<div data-role="header" class="header" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/catalog" data-icon="arrow-l" >Catalog</a>
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content">
+    <p>Review your items below then tap "Place Order" to submit your order for approval.</p>
+    <% if ( cart.get( "orderItems" ).length ) { 
+        var total = 0; %>
+    <ul data-role="listview" data-theme="a" data-split-icon="delete" data-split-theme="b">
+    <% _.each(cart.get( "orderItems" ), function(item){ 
+        var quantity = item.quantity,
+            i;
+        for ( i = 0; i < quantity; i++ ) { 
+            total += item.item.price %>
+        <li class="catalog-item">
+            <a href="#buyer/item/<%= item.item.category.id %>/<%= item.item.id %>" title='<%= item.item.name %>'>
+                <img src="<%= item.item.imageURL %>" class="item-img"/>
+                <h3 class="item-name"><%= item.item.name %></h3>
+                <p><%= item.item.description %></p>
+                <p>Price: $<span class="item-price"><%= item.item.price.toFixed( 2 ) %></span></p>
+            </a>
+            <a href="#" class="remove-button" data-item-id="<%= item.item.id %>">Remove Item</a>
+        </li>
+    <%  }
+       }); %>
+    </ul>
+    <p><strong>Order Total:</strong> $<%= total.toFixed( 2 ) %></p>
+    <a href="#" class="checkout-button" data-cart-id="<%= cart.id %>" title="Place Order" data-role="button">Place Order</a>
+    <% } else { %>
+    <p>Your cart is currently empty</p>
+    <% } %>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/role" data-icon="home" >Home</a>
+</div>
+<!-- /Footer -->

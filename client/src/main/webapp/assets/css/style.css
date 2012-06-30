@@ -1,0 +1,157 @@
+/* User profile page styles */
+#profile div form fieldset div {
+    margin-bottom: 10px;
+}
+
+legend, label {
+    font-weight: bold !important;
+}
+
+.form-legend {
+    padding-bottom: 20px;
+}
+
+.profile-label {
+    display: inline-block;
+    font-weight: bold;
+    width: 125px;
+}
+
+.profile-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.detailImage {
+    float: left;
+    margin: 10px;
+    max-width: 150px;
+}
+
+.order-summary {
+    border: 1px solid #999;
+}
+
+.order-summary-row {
+    border-bottom: 1px solid #999;
+    padding: 10px;
+}
+
+.order-summary-heading {
+    float: left;
+    font-weight: bold;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.order-summary-heading2 {
+    float: left;
+    font-weight: bold;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.order-summary-details {
+    clear: both;
+}
+
+.order-summary-items {
+    border: 1px solid #999;
+    margin-left: 110px;
+}
+
+.message-body {
+    width: 245px;
+    text-align: center;
+    padding: 20px 5px;
+    margin: auto;
+    font-weight: bold;
+}
+
+/* jQuery Mobile Overrides */
+.ui-btn-inner {
+    padding: 15px;
+}
+
+.ui-header .ui-title {
+    margin: -1px 0 -5px 0;
+}
+
+.ui-footer {
+    padding: 5px;
+}
+
+.ui-li-link-alt {
+    margin: -1px 0 0 0;
+}
+
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit {
+    padding-bottom: 4px;
+}
+
+.ui-content {
+    margin-top: 85px;
+    padding-bottom: 30px;
+}
+
+.ui-content .ui-listview {
+    margin-top: 0;
+}
+
+.ui-body-d .ui-btn-active {
+    background-color: #4c3768;
+    border-color: #9872ca;
+    background-image: none;
+}
+
+.ui-body-d .ui-focus, .ui-body-d .ui-btn:focus {
+    -moz-box-shadow: 0px 0px 12px #4c3768;
+    -webkit-box-shadow: 0px 0px 12px #4c3768;
+    box-shadow: 0px 0px 12px #4c3768;
+}
+
+.ui-body-d .ui-icon, .ui-bar-d .ui-icon {
+    background-color: #4c3768;
+}
+
+.ui-body-e .ui-btn-active {
+    background-color: #2e6624;
+    border-color: #47a636;
+    background-image: none;
+}
+
+.ui-body-e .ui-focus, .ui-body-e .ui-btn:focus {
+    -moz-box-shadow: 0px 0px 12px #2e6624;
+    -webkit-box-shadow: 0px 0px 12px #2e6624;
+    box-shadow: 0px 0px 12px #2e6624;
+}
+
+.ui-body-e .ui-icon, .ui-bar-e .ui-icon {
+    background-color: #2e6624;
+}
+
+/* Adjust logo size for mobile devices */
+@media only screen and (max-width: 960px) {
+    .title-logo {
+        width: 190px;
+    }
+
+    .ui-content {
+        margin-top: 60px;
+    }
+}
+@media only screen and (max-width: 360px) {
+    .title-logo {
+        width: 175px;
+    }
+
+    .ui-content {
+        margin-top: 45px;
+    }
+}
+
+/* jQuery UI Icons */
+.ui-icon-cart {
+    background-image: url("images/ui-icons-ffffff.png");
+    background-position: -48px -112px;
+}

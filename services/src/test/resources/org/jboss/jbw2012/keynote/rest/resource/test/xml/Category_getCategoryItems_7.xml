@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection xmlns:atom="http://www.w3.org/2005/Atom">
+	<item id="8" name="item2-1" imageURL="urn:item2-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-1.jpg" price="21.00">
+		<category id="7" name="cat2">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+		</category>
+		<description>desc2-1</description>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/item/8" />
+	</item>
+	<item id="9" name="item2-2" imageURL="urn:item2-2" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-2.jpg" price="22.00">
+		<category id="7" name="cat2">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+		</category>
+		<description>desc2-2</description>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/item/9" />
+	</item>
+	<item id="10" name="item2-3" imageURL="urn:item2-3" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-3.jpg" price="23.00">
+		<category id="7" name="cat2">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+		</category>
+		<description>desc2-3</description>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/item/10" />
+	</item>
+	<item id="11" name="item2-4" imageURL="urn:item2-4" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-4.jpg" price="24.00">
+		<category id="7" name="cat2">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+		</category>
+		<description>desc2-4</description>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/item/11" />
+	</item>
+	<item id="12" name="item2-5" imageURL="urn:item2-5" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-5.jpg" price="25.00">
+		<category id="7" name="cat2">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+			<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+		</category>
+		<description>desc2-5</description>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/item/12" />
+	</item>
+</collection>

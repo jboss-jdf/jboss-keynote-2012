@@ -1,0 +1,22 @@
+<assembly>
+  <id>bin</id>
+  <formats>
+    <format>tar.gz</format>
+    <format>zip</format>
+  </formats>
+  <files>
+    <file>
+      <source>target/jbwdemo-application.ear</source>
+      <outputDirectory></outputDirectory>
+      <destName>jbossworld.ear</destName>
+    </file>
+    <file>
+      <source>target/drools-guvnor.war</source>
+      <outputDirectory></outputDirectory>
+    </file>
+    <file>
+      <source>target/designer.war</source>
+      <outputDirectory></outputDirectory>
+    </file>
+  </files>
+</assembly>

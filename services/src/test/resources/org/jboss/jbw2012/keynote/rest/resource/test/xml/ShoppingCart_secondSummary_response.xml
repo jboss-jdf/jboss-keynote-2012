@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<shoppingCartSummary xmlns:atom="http://www.w3.org/2005/Atom"
+	id="20" total="32.00">
+	<orderItemSummary id="27" itemName="item1-1" imageURL="urn:item1-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail1-1.jpg" quantity="1"/>
+	<orderItemSummary id="28" itemName="item2-1" imageURL="urn:item2-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-1.jpg" quantity="1"/>
+	<atom:link rel="cancelShoppingCart" href="http://127.0.0.1:8080/test/cart/20" />
+	<atom:link rel="self" href="http://127.0.0.1:8080/test/cart/20" />
+	<atom:link rel="summary" href="http://127.0.0.1:8080/test/cart/20" />
+	<atom:link rel="checkoutShoppingCart" href="http://127.0.0.1:8080/test/cart/20/checkout" />
+	<atom:link rel="addToShoppingCart" href="http://127.0.0.1:8080/test/cart/20/additem" />
+	<atom:link rel="removeFromShoppingCart" href="http://127.0.0.1:8080/test/cart/20/removeitem" />
+</shoppingCartSummary>

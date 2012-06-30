@@ -1,0 +1,37 @@
+<!-- Header -->
+<div data-role="header" class="header" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/catalog" data-icon="arrow-l" >Catalog</a>
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content">
+    <h3>
+        <% 
+        _.all( items, function( item ) {
+            %><%= item.category.name %><%
+            return false;
+        });
+        %>
+    </h3>
+    <ul data-role="listview" data-split-icon="plus" data-split-theme="c" data-theme="a">
+    <% _.each(items, function(item){ %>
+        <li class="catalog-item">
+            <a href="#buyer/item/<%= item.category.id %>/<%= item.id %>" title='<%= item.name %>'>
+                <img src="<%= item.imageURL %>" class="item-img"/>
+                <h3 class="item-name"><%= item.name %></h3>
+                <p><%= item.description %></p>
+                <p>Price: $<span class="item-price"><%= parseFloat(item.price).toFixed(2) %></span></p>
+            </a>
+            <a href="#" class="add-button" data-item-id="<%= item.id %>">Add to Cart</a>
+        </li>
+    <% }); %>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/cart" data-icon="cart" >Items: <span class="cart-total">0</span></a>
+</div>
+<!-- /Footer -->

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userId xmlns:atom="http://www.w3.org/2005/Atom" id="28" name="createUser1 - 28">
+	<atom:link rel="self" href="http://127.0.0.1:8080/test/user/28" />
+	<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+	<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+	<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/28/cart" />
+	<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/28/cart" />
+	<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/28/assignedOrder" />
+</userId>

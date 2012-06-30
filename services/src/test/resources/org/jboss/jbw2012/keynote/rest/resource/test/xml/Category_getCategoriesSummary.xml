@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection xmlns:atom="http://www.w3.org/2005/Atom">
+	<categorySummary id="1" name="cat1">
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/category/1" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+	</categorySummary>
+	<categorySummary id="7" name="cat2">
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+	</categorySummary>
+	<categorySummary id="13" name="cat3">
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/category/13" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+	</categorySummary>
+</collection>

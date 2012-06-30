@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection xmlns:atom="http://www.w3.org/2005/Atom">
+	<user id="20" name="testUser1 - 20" team="WEST" role="BUYER">
+		<buyerTotal bought="0.00" approved="0.00" rejected="0.00" awaitingApproval="0.00" />
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/user/20" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/20/cart" />
+		<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/20/cart" />
+		<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/20/assignedOrder" />
+	</user>
+	<user id="22" name="testUser2 - 22" team="WEST" role="APPROVER">
+		<approverTotal approved="0.00" rejected="0.00" />
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/user/22" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/22/cart" />
+		<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/22/cart" />
+		<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/22/assignedOrder" />
+	</user>
+	<user id="24" name="testUser3 - 24" team="WEST" role="APPROVER">
+		<approverTotal approved="0.00" rejected="0.00" />
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/user/24" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/24/cart" />
+		<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/24/cart" />
+		<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/24/assignedOrder" />
+	</user>
+	<user id="26" name="Vice Principal - 26" team="VP" role="VP">
+		<approverTotal approved="0.00" rejected="0.00" />
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/user/26" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/26/cart" />
+		<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/26/cart" />
+		<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/26/assignedOrder" />
+	</user>
+	<user id="28" name="createUser1 - 28" team="EAST" role="APPROVER">
+		<approverTotal approved="0.00" rejected="0.00" />
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/user/28" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+		<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/28/cart" />
+		<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/28/cart" />
+		<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/28/assignedOrder" />
+	</user>
+</collection>

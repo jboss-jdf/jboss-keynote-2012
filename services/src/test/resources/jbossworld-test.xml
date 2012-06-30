@@ -1,0 +1,30 @@
+<configuration>
+  <category name="cat1">
+    <item name="item1-1" imageURL="urn:item1-1" thumbnailURL="images/thumbnail1-1.jpg" description="desc1-1" price="11"/>
+    <item name="item1-2" imageURL="urn:item1-2" thumbnailURL="images/thumbnail1-2.jpg" description="desc1-2" price="12"/>
+    <item name="item1-3" imageURL="urn:item1-3" thumbnailURL="images/thumbnail1-3.jpg" description="desc1-3" price="13"/>
+    <item name="item1-4" imageURL="urn:item1-4" thumbnailURL="images/thumbnail1-4.jpg" description="desc1-4" price="14"/>
+    <item name="item1-5" imageURL="urn:item1-5" thumbnailURL="images/thumbnail1-5.jpg" description="desc1-5" price="15"/>
+  </category>
+
+  <category name="cat2">
+    <item name="item2-1" imageURL="urn:item2-1" thumbnailURL="images/thumbnail2-1.jpg" description="desc2-1" price="21"/>
+    <item name="item2-2" imageURL="urn:item2-2" thumbnailURL="images/thumbnail2-2.jpg" description="desc2-2" price="22"/>
+    <item name="item2-3" imageURL="urn:item2-3" thumbnailURL="images/thumbnail2-3.jpg" description="desc2-3" price="23"/>
+    <item name="item2-4" imageURL="urn:item2-4" thumbnailURL="images/thumbnail2-4.jpg" description="desc2-4" price="24"/>
+    <item name="item2-5" imageURL="urn:item2-5" thumbnailURL="images/thumbnail2-5.jpg" description="desc2-5" price="25"/>
+  </category>
+
+  <category name="cat3">
+    <item name="item3-1" imageURL="urn:item3-1" thumbnailURL="images/thumbnail3-1.jpg" description="desc3-1" price="31"/>
+    <item name="item3-2" imageURL="urn:item3-2" thumbnailURL="images/thumbnail3-2.jpg" description="desc3-2" price="32"/>
+    <item name="item3-3" imageURL="urn:item3-3" thumbnailURL="images/thumbnail3-3.jpg" description="desc3-3" price="33"/>
+    <item name="item3-4" imageURL="urn:item3-4" thumbnailURL="images/thumbnail3-4.jpg" description="desc3-4" price="34"/>
+    <item name="item3-5" imageURL="urn:item3-5" thumbnailURL="images/thumbnail3-5.jpg" description="desc3-5" price="35"/>
+  </category>
+  
+  <user name="testUser1" role="BUYER" team="WEST"/>
+  <user name="testUser2" role="APPROVER" team="WEST"/>
+  <user name="testUser3" role="APPROVER" team="WEST"/>
+  <user name="Vice Principal" role="VP" team="VP"/>
+</configuration>

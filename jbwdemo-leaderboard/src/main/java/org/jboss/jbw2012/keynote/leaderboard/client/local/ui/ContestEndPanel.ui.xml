@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:cellview="urn:import:com.google.gwt.user.cellview.client">
+    <ui:style>
+        li {
+          line-height: 48px;
+        }
+    </ui:style>
+
+    <g:HTMLPanel>
+        <div style="width:100%; line-height: 50px;">
+            <div style="text-align: center; width:100%; padding-top: 25px; padding-bottom: 40px; font-size: 62px; color: #FF3333;">
+                <g:Label ui:field="titleBar"/>
+            </div>
+            <div style="text-align: center; width:100%;">
+                <h3 style="font-size: 32px; color: #AABBAA; padding: 25px;">Congratulations to</h3>
+                <h4 style="font-size: 52px; color: #FFFFFF; padding: 25px;">
+                    <g:Label ui:field="contestWinner"/>
+                </h4>
+                <h3 style="font-size: 32px; color: #AABBAA; padding: 25px;">You are the #1 salesperson!</h3>
+            </div>
+            <div style="text-align: center; width:100%; padding-top: 30px; border-top: 1px solid white;">
+                <h3 style="font-size: 32px; color: #993333; padding: 25px;">Lottery Winners:</h3>
+                <h4 style="font-size: 38px; color: #DFDFDF; padding: 25px; line-height: 48px;">
+                    <g:HTMLPanel ui:field="lotteryWinners"/>
+                </h4>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

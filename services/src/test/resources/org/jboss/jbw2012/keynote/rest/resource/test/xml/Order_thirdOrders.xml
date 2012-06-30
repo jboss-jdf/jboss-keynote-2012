@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection xmlns:atom="http://www.w3.org/2005/Atom">
+	<order id="29" exceedsLimit="false" total="32.00">
+		<buyer id="20" name="testUser1 - 20">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/user/20" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/20/cart" />
+			<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/20/cart" />
+			<atom:link rel="assignedOrder" 	href="http://127.0.0.1:8080/test/user/20/assignedOrder" />
+		</buyer>
+		<orderItem id="27" quantity="1">
+			<item id="2" name="item1-1" imageURL="urn:item1-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail1-1.jpg" price="11.00">
+				<category id="1" name="cat1">
+					<atom:link rel="self" href="http://127.0.0.1:8080/test/category/1" />
+					<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+				</category>
+				<description>desc1-1</description>
+				<atom:link rel="self" href="http://127.0.0.1:8080/test/item/2" />
+			</item>
+		</orderItem>
+		<orderItem id="28" quantity="1">
+			<item id="8" name="item2-1" imageURL="urn:item2-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-1.jpg" price="21.00">
+				<category id="7" name="cat2">
+					<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+					<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+				</category>
+				<description>desc2-1</description>
+				<atom:link rel="self" href="http://127.0.0.1:8080/test/item/8" />
+			</item>
+		</orderItem>
+		<assignee id="22" name="testUser2 - 22">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/user/22" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/22/cart" />
+			<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/22/cart" />
+			<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/22/assignedOrder" />
+		</assignee>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/order/29" />
+		<atom:link rel="orders" href="http://127.0.0.1:8080/test/order/" />
+		<atom:link rel="openOrders" href="http://127.0.0.1:8080/test/order/open" />
+		<atom:link rel="nextOrder" href="http://127.0.0.1:8080/test/order/nextOrder" />
+		<atom:link rel="assignOrder" href="http://127.0.0.1:8080/test/order/29/assign" />
+		<atom:link rel="approve" href="http://127.0.0.1:8080/test/order/29/approve" />
+		<atom:link rel="reject" href="http://127.0.0.1:8080/test/order/29/reject" />
+	</order>
+	<order id="34" exceedsLimit="false" total="32.00">
+		<buyer id="20" name="testUser1 - 20">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/user/20" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/20/cart" />
+			<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/20/cart" />
+			<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/20/assignedOrder" />
+		</buyer>
+		<orderItem id="32" quantity="1">
+			<item id="8" name="item2-1" imageURL="urn:item2-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail2-1.jpg" price="21.00">
+				<category id="7" name="cat2">
+					<atom:link rel="self" href="http://127.0.0.1:8080/test/category/7" />
+					<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+				</category>
+				<description>desc2-1</description>
+				<atom:link rel="self" href="http://127.0.0.1:8080/test/item/8" />
+			</item>
+		</orderItem>
+		<orderItem id="33" quantity="1">
+			<item id="2" name="item1-1" imageURL="urn:item1-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail1-1.jpg" price="11.00">
+				<category id="1" name="cat1">
+					<atom:link rel="self" href="http://127.0.0.1:8080/test/category/1" />
+					<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+					<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+				</category>
+				<description>desc1-1</description>
+				<atom:link rel="self" href="http://127.0.0.1:8080/test/item/2" />
+			</item>
+		</orderItem>
+		<assignee id="24" name="testUser3 - 24">
+			<atom:link rel="self" href="http://127.0.0.1:8080/test/user/24" />
+			<atom:link rel="list" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="add" href="http://127.0.0.1:8080/test/user/" />
+			<atom:link rel="shoppingCart" href="http://127.0.0.1:8080/test/user/24/cart" />
+			<atom:link rel="shoppingCartSummary" href="http://127.0.0.1:8080/test/user/24/cart" />
+			<atom:link rel="assignedOrder" href="http://127.0.0.1:8080/test/user/24/assignedOrder" />
+		</assignee>
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/order/34" />
+		<atom:link rel="orders" href="http://127.0.0.1:8080/test/order/" />
+		<atom:link rel="openOrders" href="http://127.0.0.1:8080/test/order/open" />
+		<atom:link rel="nextOrder" href="http://127.0.0.1:8080/test/order/nextOrder" />
+		<atom:link rel="assignOrder" href="http://127.0.0.1:8080/test/order/34/assign" />
+		<atom:link rel="approve" href="http://127.0.0.1:8080/test/order/34/approve" />
+		<atom:link rel="reject" href="http://127.0.0.1:8080/test/order/34/reject" />
+	</order>
+</collection>

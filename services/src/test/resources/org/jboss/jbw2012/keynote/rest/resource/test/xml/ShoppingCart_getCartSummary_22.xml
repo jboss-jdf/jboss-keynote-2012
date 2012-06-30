@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<shoppingCart xmlns:atom="http://www.w3.org/2005/Atom" id="22">
+	<atom:link rel="cancelShoppingCart" href="http://127.0.0.1:8080/test/cart/22" />
+	<atom:link rel="self" href="http://127.0.0.1:8080/test/cart/22" />
+	<atom:link rel="summary" href="http://127.0.0.1:8080/test/cart/22" />
+	<atom:link rel="checkoutShoppingCart" href="http://127.0.0.1:8080/test/cart/22/checkout" />
+	<atom:link rel="addToShoppingCart" href="http://127.0.0.1:8080/test/cart/22/additem" />
+	<atom:link rel="removeFromShoppingCart" href="http://127.0.0.1:8080/test/cart/22/removeitem" />
+</shoppingCart>

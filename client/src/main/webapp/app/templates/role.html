@@ -1,0 +1,90 @@
+<!-- Header -->
+<% 
+var theme = "c";
+if ( role == "APPROVER" ) {
+    theme = "d";
+} else if ( role == "VP" ) {
+    theme = "e";
+}
+%>
+<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>">
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content" data-theme="<%= theme %>">
+    <h3>Account Information</h3>
+    <div>
+        <span class="profile-label">Unique ID:</span> <%= id %>
+    </div>
+    <div>
+        <span class="profile-label">Name:</span> <%= name %>
+    </div>
+    <div>
+        <span class="profile-label">Team:</span> <%= team %>
+    </div>
+    <a href="#<%= role == 'BUYER' ? 'buyer/catalog' : role.toLowerCase() + '/orders' %>" id="cancel" data-role="button"><%= role == 'BUYER' ? 'View Catalog' : 'View Orders' %></a>
+    <h3>Order Summary</h3>
+    <div class="order-summary">
+        <div class="order-summary-row">
+            <div class="order-summary-heading">Approved:</div>
+            $<%= totals.approved.toFixed( 2 ) %>
+        </div>
+        <div class="order-summary-row">
+            <div class="order-summary-heading">Rejected:</div>
+            $<%= totals.rejected.toFixed( 2 ) %>
+        </div>
+        <% if ( !order ) { %>
+        <div class="order-summary-row">
+            <div class="order-summary-heading">Pending:</div>
+            $<%= totals.awaitingApproval.toFixed( 2 ) %>
+        </div>
+        <div class="order-summary-row">
+            <div class="order-summary-heading">Total:</div>
+            $<%= totals.bought.toFixed( 2 ) %>
+        </div>
+        <% } else { %>
+        <div class="order-summary-row">
+            <div class="order-summary-heading">Awaiting Approval:</div>
+                <% if ( order.id ) { %>
+                Order #<%= order.id %>
+                <div class="order-summary-details">
+                    <h4>Order Details</h4>
+                    <div>
+                        <div class="order-summary-heading2">User:</div><%= order.buyer.name %><br style="clear: left;" />
+                        <div class="order-summary-heading2">Order Total:</div>$<%= order.total.toFixed( 2 ) %><br style="clear: left;" />
+                        <div class="order-summary-heading2">Order Items:</div>
+                        <div class="order-summary-items">
+                            <% 
+                            var items = order.orderItems,
+                                i;
+                            for ( i = 0; i < items.length; i++ ) {
+                            %>  <div class="order-summary-row"><strong><%= items[ i ].item.name %></strong><br />Quantity: <%= items[ i ].quantity %> @ $<%= items[ i ].item.price.toFixed( 2 ) %></div>
+                            <%
+                            }
+                            %>
+                        </div>
+                        <a id="approveButton" href="#" data-order-id="<%= order.id %>" data-role="button">Approve</a><br /><br />
+                        <h4>Rejection Message</h4>
+                        <textarea id="rejectMessage" name="rejectMessage"></textarea>
+                        <a id="rejectButton" href="#" data-order-id="<%= order.id %>" data-role="button">Reject</a>
+                    </div>
+                </div>
+                <% } else { %>
+                No Order Assigned
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>">
+    <% if ( role == "BUYER" ) { %>
+    <a href="#buyer/cart" data-icon="cart">Items: <span class="cart-total">0</span></a>
+    <% } %>
+</div>
+<!-- /Footer -->

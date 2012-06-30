@@ -1,0 +1,55 @@
+<!-- Header -->
+<% 
+var theme = "c";
+if ( role.toUpperCase() == "APPROVER" ) {
+    theme = "d";
+} else if ( role.toUpperCase() == "VP" ) {
+    theme = "e";
+}
+%>
+<div data-role="header" class="header" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>">
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content" data-theme="<%= theme %>">
+    <h4>Open Orders</h4>
+    <% if ( orders.length ) { %>
+    <p>Tap "Assign to Me" to take control of an order or tap "Next Order" to automatically assign the next available order to you for approval.</p>
+    <a href="#" class="next-order-button" data-role="button">Next Order</a><br /><br />
+    <ul data-role="listview" data-theme="a" class="order-list">
+    <% _.each( orders, function( order ) { %>
+        <li>
+            <div>
+                <div>User: <%= order.get( "buyer" ).name %></div>
+                <div>Order Total: $<%= order.get( "total" ).toFixed( 2 ) %></div>
+                <div data-role="collapsible" data-order-id="<%= order.get( "id" ) %>" data-collapsed="<%= expanded.indexOf( order.get( "id" ) ) >= 0 ? "false" : "true" %>">
+                    <h4>Order Items</h4>
+                    <div>
+                        <% 
+                        var items = order.get( "orderItems" ),
+                            i;
+                        for ( i = 0; i < items.length; i++ ) {
+                        %>  <div><strong><%= items[ i ].item.name %></strong> - <%= items[ i ].quantity %> @ $<%= items[ i ].item.price.toFixed( 2 ) %></div>
+                        <%
+                        }
+                        %>
+                    </div>
+                </div>
+                <a href="#" class="assign-button" data-order-id="<%= order.get("id") %>" data-role="button">Assign To Me</a>
+            </div>
+        </li>
+    <% }); %>
+    </ul>
+    <% } else { %>
+    <p>There are currently no orders needing approval</p>
+    <% } %>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>">
+    <a href="#<%= role %>/role" data-icon="home" id="home-button">Home</a>
+</div>
+<!-- /Footer -->

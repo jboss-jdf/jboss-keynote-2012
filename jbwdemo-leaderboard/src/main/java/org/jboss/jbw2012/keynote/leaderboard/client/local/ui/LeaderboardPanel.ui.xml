@@ -1,0 +1,65 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui"
+             xmlns:cellview="urn:import:com.google.gwt.user.cellview.client">
+    <ui:style>
+        .scoreboard-title {
+            color: #dd514c;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .count-value {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+
+        .count-label {
+            color: #E2D6D5;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+    </ui:style>
+    <g:HTMLPanel styleName="container-fluid">
+        <div class="row">
+            <div class="span12" style="padding-top: 10px; padding-bottom: 10px;">
+                <g:Label ui:field="teamName" styleName="{style.scoreboard-title}"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span8" style="margin-bottom: 15px;">
+                <cellview:CellTable ui:field="table" width="100%"/>
+                <br/>
+                <div style="height: 120px; margin: 15px;">
+                    <div id="barChart" style="height: 100%;"></div>
+                </div>
+            </div>
+
+            <div class="span3">
+                <div id="txGauge" align="right">
+                </div>
+                <div id="awaitApproval" align="right">
+                </div>
+                <div id="vitalStats" align="right">
+                    <g:Label ui:field="totalSalesPeople" styleName="{style.count-value}"/>
+                    <br/>
+                    <span style="{style.count-label}">Sales People</span>
+                    <br/>
+                    <br/>
+
+                    <g:Label ui:field="totalSalesAmount" styleName="{style.count-value}"/>
+                    <br/>
+                    <span style="{style.count-label}">Total Order</span>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </g:HTMLPanel>
+</ui:UiBinder>

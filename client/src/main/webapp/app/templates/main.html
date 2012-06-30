@@ -1,0 +1,58 @@
+<!-- Header -->
+<% 
+var theme = "c";
+if ( role == "APPROVER" ) {
+    theme = "d";
+} else if ( role == "VP" ) {
+    theme = "e";
+}
+%>
+<div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>">
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content" data-theme="<%= theme %>">   
+    <form id="profileForm" name="profileForm" data-ajax="false" method="post">
+        <fieldset>
+            <legend class="form-legend">Account Information:</legend>
+            <div>
+                <span class="profile-label">Unique ID:</span> New User
+            </div>
+            <div>
+                <label for="name" class="bold-label">Name:</label> 
+                <input type="text" name="name" id="name" placeholder="Your Name" required autofocus/>
+            </div>
+            <% if ( role == "VP" || role == "APPROVER" ) { %>
+            <div>
+                <label for="password" class="bold-label">Password:</label> 
+                <input type="password" name="password" id="password" placeholder="Assigned Password" required />
+            </div>
+            <% }
+               if ( role == "VP" ) { %>
+            <input type="hidden" name="team" id="team-1" value="VP" />
+            <% } else { %>
+            <div>
+                <fieldset>
+                    <legend>Team:</legend>
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <label for="team-1">East</label>
+                        <input type="radio" name="team" id="team-1" value="EAST" required/>
+                        <label for="team-2">West</label>
+                        <input type="radio" name="team" id="team-2" value="WEST" required/>
+                    </div>
+                </fieldset>
+            </div>
+            <% } %>
+            <div>
+                <input type="submit" name="register" id="register" value="Register" />
+            </div>
+        </fieldset>
+    </form>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="<%= theme %>"></div>
+<!-- /Footer -->

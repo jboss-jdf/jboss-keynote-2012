@@ -1,0 +1,69 @@
+Building
+--------
+
+1 - Build the admin and leaderboard applications
+  mvn clean install -Padmin
+  mvn clean install -Pleaderboard
+2 - Build the main application
+  mvn clean install
+  (add -DskipTests to build without running tests)
+
+Deploying
+---------
+
+There are three deployable artifacts created by the build
+ - distribution/target/drools-guvnor.war
+   Guvnor application
+ - distribution/target/designer.war
+   Process Designer application
+ - distribution/target/jbwdemo-application.ear
+   REST services, jBPM integration, mobile client application
+
+During the keynote demo we deployed the Guvnor and Designer applications on one server with the REST services etc. being deployed on a second server, however all artifacts can be deployed on the same server.
+
+Configuring Guvnor Server
+-------------------------
+
+1 - Add drools-guvnor domain into standalone/configuration/standalone.xml
+
+        <security-domain name="drools-guvnor" cache-type="default">
+            <authentication>
+                <login-module code="UsersRoles" flag="required">
+                    <module-option name="usersProperties" value="${jboss.server.config.dir}/guvnor-users.properties"/>
+                    <module-option name="rolesProperties" value="${jboss.server.config.dir}/guvnor-roles.properties"/>
+                </login-module>
+            </authentication>
+        </security-domain>
+
+2 - Create standalone/configuration/guvnor-users.properties
+        admin=admin
+
+3 - Create standalone/configuration/guvnor-roles.properties
+        admin=admin,manager,user,webdesigner,functionalanalyst
+
+Configuring REST Server
+-----------------------
+If you are using the default h2 ExampleDS then make sure that you enable MVCC as follows
+    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MVCC=TRUE</connection-url>
+
+Initialising Guvnor Repository
+------------------------------
+
+After deploying the Guvnor/designer applications, and configuring the Guvnor server, log in to the Guvnor console (<host>:<port>/drools-guvnor, user admin, password admin) and import the repository using the contents of process/guvnor_repository_export.zip
+
+Accessing the Client Application
+--------------------------------
+
+- buyer application
+  <host>:<port>/jbossworld-client
+- approver application
+  <host>:<port>/jbossworld-client/#approver
+- VP application
+  <host>:<port>/jbossworld-client/#vp
+
+Running Robots
+--------------
+
+Execute the following from within the robots directory
+  mvn exec:java -Dexec.mainClass=org.jboss.jbw2012.keynote.robots.RobotsClient
+

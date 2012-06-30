@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.jboss.jbw.keynote2012</groupId>
+  <artifactId>project</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>pom</packaging>
+
+  <name>Keynote for JBoss World 2012</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>full - no gwt/errai</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>parent</module>
+        <module>utils</module>
+        <module>model</module>
+        <module>process</module>
+        <module>services-api</module>
+        <module>services</module>
+        <module>application</module>
+        <module>client</module>
+        <module>robots</module>
+        <module>authenticator</module>
+        <module>distribution</module>  
+      </modules>
+    </profile>
+    <profile>
+      <id>client</id>
+      <modules>
+        <module>parent</module>
+        <module>application</module>
+        <module>client</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>leaderboard</id>
+      <modules>
+        <module>parent</module>
+        <module>errai-model</module>  
+        <module>jbwdemo-leaderboard</module>  
+      </modules>
+    </profile>
+    <profile>
+      <id>admin</id>
+      <modules>
+        <module>parent</module>
+        <module>admin-model</module>  
+        <module>admin</module>  
+      </modules>
+    </profile>
+  </profiles>
+</project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<item xmlns:atom="http://www.w3.org/2005/Atom" id="2" name="item1-1" imageURL="urn:item1-1" thumbnailURL="http://127.0.0.1:8080/test/images/thumbnail1-1.jpg" price="11.00">
+	<category id="1" name="cat1">
+		<atom:link rel="self" href="http://127.0.0.1:8080/test/category/1" />
+		<atom:link rel="list" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesMap" href="http://127.0.0.1:8080/test/category" />
+		<atom:link rel="categoriesSummary" href="http://127.0.0.1:8080/test/category" />
+	</category>
+	<description>desc1-1</description>
+	<atom:link rel="self" href="http://127.0.0.1:8080/test/item/2" />
+</item>

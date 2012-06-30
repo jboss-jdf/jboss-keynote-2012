@@ -1,0 +1,9 @@
+@import url("jquery.mobile.structure-1.1.0.css");
+@import url("jquery-mobile-JBW.min.css");
+@import url("style.css");
+<!-- 
+This file is used so we have a single HTTP request for all of our CSS
+once it has been inlined into a single file by the RequireJS Optimizer,
+Comments are below because import statements must be the first items in
+the file to work.
+-->

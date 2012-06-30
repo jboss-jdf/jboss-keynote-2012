@@ -1,0 +1,21 @@
+<!-- Header -->
+<div data-role="header" class="header" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/role" data-icon="home" >Home</a>
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content">
+    <ul data-role="listview" data-theme="c">
+    <% _.each(items, function(category){ %>
+        <li><a href="#buyer/catalog/<%= category.id %>"><%= category.name %></a></li>
+    <% }); %>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/cart" data-icon="cart" >Items: <span class="cart-total">0</span></a>
+</div>
+<!-- /Footer -->

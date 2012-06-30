@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>jbwdemo-client</artifactId>
+
+  <parent>
+    <groupId>org.jboss.jbw.keynote2012</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+
+  <packaging>war</packaging>
+
+  <name>Keynote Mobile Client Application for JBoss World 2012</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
+      <!-- To use, run: mvn package jboss-as:deploy -->
+      <plugin>
+          <groupId>org.jboss.as.plugins</groupId>
+          <artifactId>jboss-as-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+      <profile>
+          <!-- Perform RequireJS Optimization -->
+          <id>requirejs</id>
+          <activation>
+            <property>
+              <name>requirejs</name>
+            </property>
+          </activation>
+          <build>
+              <plugins>
+                  <!-- Use the antrun plugin to execute a JavaScript build via Rhino -->
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-antrun-plugin</artifactId>
+                      <version>1.6</version>
+                      <executions>
+                          <execution>
+                              <id>optimize</id>
+                              <phase>prepare-package</phase>
+
+                              <configuration>
+                                 <target name="-optimize" description="Combine and minify files.">
+                                     <echo message="Running optimize." />
+
+                                     <property name="requirejs.dir" value="${basedir}/src/main/requirejs" />
+
+                                     <java classname="org.mozilla.javascript.tools.shell.Main" failonerror="true">
+                                         <classpath>
+                                             <pathelement location="${requirejs.dir}/rhino/js.jar" />
+                                         </classpath>
+                                         <arg value="${requirejs.dir}/r.js" />
+                                         <arg value="-o" />
+                                         <arg value="${requirejs.dir}/app.build.js" />                                
+                                     </java>
+                                 </target>
+                              </configuration>
+
+                              <goals>
+                                  <goal>run</goal>
+                              </goals>
+                          </execution>
+                      </executions>
+                  </plugin>
+
+                  <!-- Use the warSourceExcludes config in the war plugin to prevent overwriting files generated -->
+                  <!-- by the JavaScript build -->
+                  <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-war-plugin</artifactId>
+                      <configuration>
+                          <warSourceExcludes>**/*.*</warSourceExcludes>
+                      </configuration>
+                  </plugin>
+              </plugins>
+          </build>
+      </profile>
+  </profiles>
+</project>

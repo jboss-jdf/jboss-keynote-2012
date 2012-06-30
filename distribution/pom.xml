@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>jbwdemo-distribution</artifactId>
+
+  <parent>
+    <groupId>org.jboss.jbw.keynote2012</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+
+  <name>Keynote distribution for JBoss World 2012</name>
+
+  <packaging>pom</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jbwdemo-application</artifactId>
+      <type>ear</type>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>guvnor-distribution-wars</artifactId>
+      <classifier>jboss-as-7.0</classifier>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>jbossworld</finalName>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>download-wars</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>jbwdemo-application</artifactId>
+                  <type>ear</type>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.drools</groupId>
+                  <artifactId>guvnor-distribution-wars</artifactId>
+                  <classifier>jboss-as-7.0</classifier>
+                  <type>war</type>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>${project.groupId}</groupId>
+                  <artifactId>jbwdemo-authenticator</artifactId>
+                </artifactItem>
+              </artifactItems>
+              <outputDirectory>${project.build.directory}/original</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <stripVersion>true</stripVersion>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>update-wars</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <tasks>
+                <delete dir="${project.build.directory}/processed" quiet="true"/>
+                <mkdir dir="${project.build.directory}/processed"/>
+                <!-- process guvnor war -->
+                <unzip src="${project.build.directory}/original/guvnor-distribution-wars-jboss-as-7.0.war"
+                    dest="${project.build.directory}/processed/drools-guvnor.war"/>
+                <copy todir="${project.build.directory}/processed/drools-guvnor.war" overwrite="true">
+                  <fileset dir="${basedir}/src/main/guvnor-resources"/>
+                  <filterset>
+                    <filter token="DESIGNER_URL" value="${designer.url}"/>
+                    <filter token="FORMBUILDER_URL" value="${formbuilder.url}"/>
+                  </filterset>
+                </copy>
+                <replace dir="${project.build.directory}/processed/drools-guvnor.war/"
+                    token=" Guvnor" value=" BRMS">
+                  <include name="org.drools.guvnor.Guvnor/*.html"/>
+                  <include name="org.drools.guvnor.Guvnor/*.jsp"/>
+                  <include name="WEB-INF/web.xml"/>
+                </replace>
+                <replace dir="${project.build.directory}/processed/drools-guvnor.war/"
+                    token="header_logo" value="hdrlogo_brms">
+                  <include name="org.drools.guvnor.Guvnor/*.html"/>
+                </replace>
+                <copy todir="${project.build.directory}/processed/drools-guvnor.war/WEB-INF/lib"
+                    file="${project.build.directory}/original/jbwdemo-authenticator.jar" overwrite="true"/>
+                <zip destfile="${project.build.directory}/drools-guvnor.war"
+                    basedir="${project.build.directory}/processed/drools-guvnor.war"/>
+
+                <!-- process designer war -->
+                <unzip src="${basedir}/src/main/assembly/designer.war"
+                    dest="${project.build.directory}/processed/designer.war"/>
+                <copy todir="${project.build.directory}/processed/designer.war" overwrite="true">
+                  <fileset dir="${basedir}/src/main/designer-resources"/>
+                  <filterset>
+                    <filter token="GUVNOR_PROTOCOL" value="${guvnor.protocol}"/>
+                    <filter token="GUVNOR_HOST" value="${guvnor.host}"/>
+                    <filter token="GUVNOR_USER" value="${guvnor.user}"/>
+                    <filter token="GUVNOR_PASSWORD" value="${guvnor.password}"/>
+                    <filter token="PROCESS_RUNTIME" value="${process.runtime}"/>
+                  </filterset>
+                </copy>
+                <zip destfile="${project.build.directory}/designer.war"
+                    basedir="${project.build.directory}/processed/designer.war"/>
+
+                <!-- process application ear -->
+                <unzip src="${project.build.directory}/original/jbwdemo-application.ear"
+                    dest="${project.build.directory}/processed/jbwdemo-application.ear"/>
+                <unzip src="${project.build.directory}/processed/jbwdemo-application.ear/jbwdemo-services-${project.version}.war"
+                    dest="${project.build.directory}/processed/jbwdemo-services.war"/>
+                <unzip src="${project.build.directory}/processed/jbwdemo-application.ear/jbwdemo-model-${project.version}.jar"
+                    dest="${project.build.directory}/processed/jbwdemo-model.jar"/>
+                <unzip src="${project.build.directory}/processed/jbwdemo-services.war/WEB-INF/lib/jbwdemo-process-${project.version}.jar"
+                    dest="${project.build.directory}/processed/jbwdemo-process.jar"/>
+
+                <copy todir="${project.build.directory}/processed/jbwdemo-process.jar" overwrite="true">
+                  <fileset dir="${basedir}/src/main/process-resources"/>
+                  <filterset>
+                    <filter token="GUVNOR_PROTOCOL" value="${guvnor.protocol}"/>
+                    <filter token="GUVNOR_HOST" value="${guvnor.host}"/>
+                    <filter token="GUVNOR_USER" value="${guvnor.user}"/>
+                    <filter token="GUVNOR_PASSWORD" value="${guvnor.password}"/>
+                    <filter token="DATABASE_NAME" value="${database.name}"/>
+                  </filterset>
+                </copy>
+
+                <copy todir="${project.build.directory}/processed/jbwdemo-model.jar" overwrite="true">
+                  <fileset dir="${basedir}/src/main/model-resources"/>
+                  <filterset>
+                    <filter token="DATABASE_NAME" value="${database.name}"/>
+                  </filterset>
+                </copy>
+
+                <zip destfile="${project.build.directory}/jbwdemo-process-${project.version}.jar">
+                  <zipfileset dir="${project.build.directory}/processed/jbwdemo-process.jar"/>
+                </zip>
+
+                <zip destfile="${project.build.directory}/jbwdemo-services-${project.version}.war">
+                  <zipfileset dir="${project.build.directory}/processed/jbwdemo-services.war" excludes="WEB-INF/lib/jbwdemo-process-${project.version}.jar"/>
+                  <zipfileset dir="${project.build.directory}/" includes="jbwdemo-process-${project.version}.jar" prefix="WEB-INF/lib"/>
+                </zip>
+
+                <zip destfile="${project.build.directory}/jbwdemo-model-${project.version}.jar">
+                  <zipfileset dir="${project.build.directory}/processed/jbwdemo-model.jar"/>
+                </zip>
+
+                <zip destfile="${project.build.directory}/jbwdemo-application.ear">
+                  <zipfileset dir="${project.build.directory}/processed/jbwdemo-application.ear" excludes="jbwdemo-services-${project.version}.war jbwdemo-model-${project.version}.jar"/>
+                  <zipfileset dir="${project.build.directory}/" includes="jbwdemo-services-${project.version}.war jbwdemo-model-${project.version}.jar"/>
+                </zip>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>package-modules</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptor>${basedir}/src/main/assembly/dep.xml</descriptor>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>localhost-config</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <!-- properties for substituting server information in designer -->
+        <guvnor.protocol>http</guvnor.protocol>
+        <guvnor.host>localhost:8080</guvnor.host>
+        <guvnor.user>admin</guvnor.user>
+        <guvnor.password>admin</guvnor.password>
+        <process.runtime>http://localhost:8080/jbossworld/statistics/process</process.runtime>
+
+        <!-- properties for substituting server information in guvnor -->
+        <designer.url>http://localhost:8080</designer.url>
+        <formbuilder.url>${designer.url}</formbuilder.url>
+
+        <!-- database name -->
+        <database.name>ExampleDS</database.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>openshift-config</id>
+      <properties>
+        <!-- properties for substituting server information in designer -->
+        <guvnor.protocol>http</guvnor.protocol>
+        <guvnor.host>brms-jbossworld.rhcloud.com</guvnor.host>
+        <guvnor.user>admin</guvnor.user>
+        <guvnor.password>admin</guvnor.password>
+        <process.runtime>http://keynote-jbossworld.rhcloud.com/jbossworld/statistics/process</process.runtime>
+
+        <!-- properties for substituting server information in guvnor -->
+        <designer.url>http://brms-jbossworld.rhcloud.com</designer.url>
+        <formbuilder.url>${designer.url}</formbuilder.url>
+
+        <!-- database name -->
+        <database.name>ExampleDS</database.name>
+      </properties>
+    </profile>
+  </profiles>
+</project>

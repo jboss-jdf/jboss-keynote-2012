@@ -1,0 +1,22 @@
+<!-- Header -->
+<div data-role="header" class="header" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/catalog/<%= items.category.id %>" data-icon="arrow-l" >Back</a>
+    <h1><img src="assets/css/images/logo.png" class="title-logo" /></h1>
+</div>
+<!-- /Header -->
+
+<!-- Content -->
+<div data-role="content" data-theme="c">
+    <a href="<%= items.imageURL %>" target="_blank"><img src="<%= items.imageURL %>" class="detailImage" /></a>
+    <h3><%= items.name %></h3>
+    <p><%= items.description %></p>
+    <p>Price: $<span class="item-price"><%= items.price.toFixed( 2 ) %></span></p>
+    <a href="#" data-role="button" data-icon="plus" data-inline="true" class="add-button" data-item-id="<%= items.id %>">Add to Cart</a>
+</div>
+<!-- /Content -->
+
+<!-- Footer -->
+<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+    <a href="#buyer/cart" data-icon="cart" >Items: <span class="cart-total">0</span></a>
+</div>
+<!-- /Footer -->
