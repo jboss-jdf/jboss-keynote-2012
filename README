@@ -56,9 +56,9 @@ Accessing the Client Application
 
 - buyer application
   <host>:<port>/jbossworld-client
-- approver application
+- approver application (password is letmein)
   <host>:<port>/jbossworld-client/#approver
-- VP application
+- VP application (password is letmein)
   <host>:<port>/jbossworld-client/#vp
 
 Running Robots
@@ -67,3 +67,7 @@ Running Robots
 Execute the following from within the robots directory
   mvn exec:java -Dexec.mainClass=org.jboss.jbw2012.keynote.robots.RobotsClient
 
+NOTE
+----
+
+Some of the functionality in this demo has still to be completed.  The current version represents the code as it stood on the day of the JBossWorld 2012 Keynote Demo.

@@ -13,6 +13,11 @@ import javax.persistence.OneToOne ;
 @Entity
 public class ShoppingCart implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -7959874999604354346L ;
+
     private Long id ;
     private List<OrderItem> orderItems ;
     private User buyer ;

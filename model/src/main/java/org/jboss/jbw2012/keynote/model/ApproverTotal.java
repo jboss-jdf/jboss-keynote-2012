@@ -12,6 +12,11 @@ import javax.persistence.Table ;
 @Table(name="ApproverTotal")
 public class ApproverTotal implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -7970093684235141792L ;
+
     private Long id ;
     private User approver ;
     private long approved ;

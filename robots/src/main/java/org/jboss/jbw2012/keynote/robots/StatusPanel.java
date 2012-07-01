@@ -7,6 +7,11 @@ import javax.swing.JPanel ;
 
 class StatusPanel extends JPanel
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -5403594625950969204L ;
+
     private static final String MESSAGE = "Status: " ;
     private final JLabel status ;
     

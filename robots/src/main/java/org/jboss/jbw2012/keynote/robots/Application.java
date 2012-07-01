@@ -28,6 +28,11 @@ import javax.swing.plaf.basic.BasicComboBoxEditor ;
 
 class Application extends JFrame
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = 6134141238012944749L ;
+    
     private final JMenuItem connect ;
     private final JMenuItem disconnect ;
     private final JMenuItem start ;

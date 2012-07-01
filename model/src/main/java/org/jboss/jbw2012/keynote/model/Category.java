@@ -14,6 +14,11 @@ import javax.persistence.OneToMany ;
 @Entity
 public class Category implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = 2581585784744985438L ;
+
     private Long id ;
     private String name ;
     private List<Item> items ;

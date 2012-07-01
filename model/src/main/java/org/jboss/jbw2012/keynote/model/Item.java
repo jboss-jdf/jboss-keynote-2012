@@ -12,6 +12,11 @@ import javax.persistence.ManyToOne ;
 @Entity
 public class Item implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = 8481778755631902261L ;
+
     private Long id ;
     private Category category ;
     private String name ;

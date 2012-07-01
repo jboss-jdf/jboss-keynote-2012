@@ -22,6 +22,11 @@ import javax.persistence.Transient;
 })
 public class Order implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -3422228271538599549L ;
+
     private Long id ;
     private User buyer ;
     private Boolean approved ;

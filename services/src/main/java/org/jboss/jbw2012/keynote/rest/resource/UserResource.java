@@ -1,7 +1,6 @@
 package org.jboss.jbw2012.keynote.rest.resource;
 
 import java.util.List ;
-import java.util.concurrent.atomic.AtomicInteger ;
 
 import javax.inject.Inject ;
 import javax.inject.Singleton ;
@@ -34,8 +33,6 @@ public class UserResource implements UserAPI
 {
     private static final String VP_SECRET_PASSWORD = "letmein" ;
     private static final String APPROVER_SECRET_PASSWORD = "letmein" ;
-    
-    private static final int MAX_BUYER = 26 ;
     
     @Inject
     private ModelUtils modelUtils ;

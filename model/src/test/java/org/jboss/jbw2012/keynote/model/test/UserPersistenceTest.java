@@ -25,7 +25,6 @@ import org.jboss.jbw2012.keynote.model.Role ;
 import org.jboss.jbw2012.keynote.model.Team ;
 import org.jboss.jbw2012.keynote.model.User ;
 import org.jboss.jbw2012.keynote.model.test.utils.ModelTestUtils ;
-import org.jboss.jbw2012.keynote.model.utils.ModelUtils ;
 import org.junit.Assert ;
 import org.junit.Test ;
 import org.junit.runner.RunWith ;

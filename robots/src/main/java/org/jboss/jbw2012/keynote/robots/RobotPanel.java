@@ -17,6 +17,11 @@ import javax.swing.event.ChangeListener ;
 
 class RobotPanel extends JPanel implements RobotListener
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -8276870224630453406L ;
+    
     private final JLabel threadCount ;
     private final JLabel invocationCount ;
     

@@ -25,6 +25,11 @@ import javax.validation.constraints.Size ;
 })
 public class User implements Serializable
 {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -2970869454313030917L ;
+
     private Long id ;
     private String name ;
     private Team team ;
