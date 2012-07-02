@@ -46,6 +46,9 @@ Configuring REST Server
 If you are using the default h2 ExampleDS then make sure that you enable MVCC as follows
     <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MVCC=TRUE</connection-url>
 
+You may also have to increase the deployment timeout on the deployment scanner, in order to give the consoles time to deploy.  This can be done by locating the 'deployment-scanner' element and specifying the timeout as follows
+    <deployment-scanner path="deployments" relative-to="jboss.server.base.dir" scan-interval="5000" deployment-timeout="180"/>
+
 Initialising Guvnor Repository
 ------------------------------
 
