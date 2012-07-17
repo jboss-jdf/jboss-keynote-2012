@@ -219,23 +219,25 @@
         <database.name>ExampleDS</database.name>
       </properties>
     </profile>
+<!-- Example profile showing an alternative configuration
     <profile>
       <id>openshift-config</id>
       <properties>
-        <!-- properties for substituting server information in designer -->
+        <!%% properties for substituting server information in designer %%>
         <guvnor.protocol>http</guvnor.protocol>
         <guvnor.host>brms-jbossworld.rhcloud.com</guvnor.host>
         <guvnor.user>admin</guvnor.user>
         <guvnor.password>admin</guvnor.password>
         <process.runtime>http://keynote-jbossworld.rhcloud.com/jbossworld/statistics/process</process.runtime>
 
-        <!-- properties for substituting server information in guvnor -->
+        <!%% properties for substituting server information in guvnor %%>
         <designer.url>http://brms-jbossworld.rhcloud.com</designer.url>
         <formbuilder.url>${designer.url}</formbuilder.url>
 
-        <!-- database name -->
+        <!%% database name %%>
         <database.name>ExampleDS</database.name>
       </properties>
     </profile>
+-->
   </profiles>
 </project>
