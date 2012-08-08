@@ -95,7 +95,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
                 },
                 error: function( model, response ) {
                     var message = response.hasOwnProperty( "responseText" ) ?
-                        $.parseJSON( response.responseText ).message : 
+                        $.parseJSON( response.responseText ).message :
                         $.parseJSON( response ).message;
                     namespace.showMessageDialog( "#main", false, messageTemplate, message, 2000, namespace.app.router );
                 }
@@ -116,7 +116,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
             var view = this,
                 localUser = $.parseJSON( localStorage.getItem( "user" ) );
             localUser.order = null;
-            this.done = done
+            this.done = done;
 
             $.ajax({
                 url: namespace.serviceURL + "/user/" + localUser.id,
