@@ -30,12 +30,12 @@ function( namespace, $, $m, Backbone, cartTemplate, messageTemplate ) {
 
     // Shopping cart page view
     Cart.Views.CartPage = Backbone.View.extend({
-        cart: new Cart.CartModel,
+        cart: new Cart.CartModel(),
         done: null,
 
         events: {
             "click a.remove-button": "removeItem",
-            "click a.checkout-button": "checkout",
+            "click a.checkout-button": "checkout"
         },
 
         render: function( done ) {
@@ -71,8 +71,8 @@ function( namespace, $, $m, Backbone, cartTemplate, messageTemplate ) {
                         case "STORE_CLOSED":
                             namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
-                        case "INVALID_USER":
                         default:
+                            // INVALID_USER errors are also captured here
                             namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
                     }
@@ -103,14 +103,11 @@ function( namespace, $, $m, Backbone, cartTemplate, messageTemplate ) {
                 },
                 error: function( jqXHR, textStatus, errorThrown ) {
                     var response = $.parseJSON( jqXHR.responseText );
-                    switch ( response.type ) {
-                        case "STORE_CLOSED":
-                            namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
-                            break;
-                        case "INVALID_USER":
-                        default:
-                            namespace.showMessageDialog( "#main", "#logout", messageTemplate, $.parseJSON( jqXHR.responseText ).message, 2000, namespace.app.router );
-                            break;
+                    if ( response.type == "STORE_CLOSED" ) {
+                        namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
+                    } else {
+                        // INVALID_USER are also captured here
+                        namespace.showMessageDialog( "#main", "#logout", messageTemplate, $.parseJSON( jqXHR.responseText ).message, 2000, namespace.app.router );
                     }
                 }
             }).done( function() {
@@ -135,14 +132,11 @@ function( namespace, $, $m, Backbone, cartTemplate, messageTemplate ) {
                 },
                 error: function( model, response ) {
                     response = $.parseJSON( response.responseText );
-                    switch ( response.type ) {
-                        case "STORE_CLOSED":
-                            namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
-                            break;
-                        case "INVALID_USER":
-                        default:
-                            namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
-                            break;
+                    if ( response.type == "STORE_CLOSED" ) {
+                        namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
+                    } else {
+                        // INVALID_USER errors are captured here
+                        namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                     }
                 }
             });

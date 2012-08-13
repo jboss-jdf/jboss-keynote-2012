@@ -33,7 +33,7 @@ function( namespace, $, $m, Backbone, orderListTemplate, messageTemplate ) {
 
     // View to display the list of orders in the collection
     Orders.Views.OpenOrderView = Backbone.View.extend({
-        orders: new Orders.OpenOrders,
+        orders: new Orders.OpenOrders(),
         curLength: null,
 
         events: {
@@ -117,17 +117,12 @@ function( namespace, $, $m, Backbone, orderListTemplate, messageTemplate ) {
                 },
                 error: function( jqXHR, textStatus, errorThrown ) {
                     var response = $.parseJSON( jqXHR.responseText );
-                    switch ( response.type ) {
-                        case "USER_ALREADY_ASSIGNEE":
-                            namespace.showMessageDialog( "#main", "#" + user.role.toLowerCase() + "/role", messageTemplate, response.message, 2000, namespace.app.router );
-                            break;
-                        case "INVALID_USER":
-                        case "INVALID_ROLE":
-                        default:
-                            namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
-                            break;
+                    if ( response.type == "USER_ALREADY_ASSIGNEE" ) {
+                        namespace.showMessageDialog( "#main", "#" + user.role.toLowerCase() + "/role", messageTemplate, response.message, 2000, namespace.app.router );
+                    } else {
+                        // INVALID_USER and INVALID_ROLE errors are captured here
+                        namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                     }
-                    
                 },
                 done: function() {
                     $m.hidePageLoadingMsg();
@@ -164,9 +159,8 @@ function( namespace, $, $m, Backbone, orderListTemplate, messageTemplate ) {
                             clearTimeout( orderTimer );
                             namespace.showMessageDialog( "#main", "#" + user.role.toLowerCase() + "/role", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
-                        case "INVALID_USER":
-                        case "INVALID_ROLE":
                         default:
+                            // INVALID_USER and INVALID_ROLE errors are also captured here
                             // Stop the order list loop
                             clearTimeout( orderTimer );
                             namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );

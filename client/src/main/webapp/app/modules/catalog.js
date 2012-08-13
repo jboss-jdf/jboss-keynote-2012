@@ -136,8 +136,8 @@ function( namespace, $, $m, Backbone, catalogTemplate, itemsTemplate, itemTempla
                     case "STORE_CLOSED":
                         namespace.showMessageDialog( "#main", "#buyer/catalog", messageTemplate, response.message, 2000, namespace.app.router );
                         break;
-                    case "INVALID_USER":
                     default:
+                        // INVALID_USER errors are also captured here
                         namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                         break;
                 }
@@ -147,7 +147,7 @@ function( namespace, $, $m, Backbone, catalogTemplate, itemsTemplate, itemTempla
                 $m.hidePageLoadingMsg();
             }
         });
-    }
+    };
 
     // Shared view renderer for all catalog views
     Catalog.renderList = function( template, items, view, done ) {
@@ -157,7 +157,7 @@ function( namespace, $, $m, Backbone, catalogTemplate, itemsTemplate, itemTempla
         if ( _.isFunction( done ) ) {
             done( view.el );
         }
-    }
+    };
 
     // Cache the catalog to prevent unnecessary REST calls and reload if it's more than one hour old
     Catalog.buildCache = function() {
@@ -183,7 +183,7 @@ function( namespace, $, $m, Backbone, catalogTemplate, itemsTemplate, itemTempla
                 }
             }
         });
-    }
+    };
 
     // Required, return the module for AMD compliance
     return Catalog;
