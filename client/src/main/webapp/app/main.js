@@ -58,7 +58,7 @@ function( namespace, $, $m, Backbone, Main, Catalog, Cart, Orders, messageTempla
         },
 
         catalog: function() {
-            namespace.transitioner( new Catalog.Views.Categories, $( "#main" ) );
+            namespace.transitioner( new Catalog.Views.Categories(), $( "#main" ) );
         },
 
         items: function( catID ) {
@@ -70,7 +70,7 @@ function( namespace, $, $m, Backbone, Main, Catalog, Cart, Orders, messageTempla
         },
 
         cart: function() {
-            namespace.transitioner( new Cart.Views.CartPage, $( "#main" ) );
+            namespace.transitioner( new Cart.Views.CartPage(), $( "#main" ) );
         },
 
         orders: function( hash ) {

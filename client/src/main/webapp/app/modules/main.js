@@ -26,7 +26,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
         urlRoot: namespace.serviceURL + "/user",
 
         sync: function( method, model, options ) {
-            var options = options || {};
+            options = options || {};
             options.Accept = "application/json";
             return Backbone.sync( method, model, options );
         },
@@ -34,7 +34,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
         validate: function( attributes ) {
             if ( !this.isNew() ) {
                 return '{"message": "You may not change roles", "type": "INVALID_REGISTRATION"}';
-            } else if ( attributes.name == "" ) {
+            } else if ( attributes.name === "" ) {
                 return '{"message": "Please enter your name", "type": "INVALID_REGISTRATION"}';
             }
         }
@@ -42,7 +42,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
 
     // Default view with registration form
     Main.Views.Registration = Backbone.View.extend({
-        model: new Main.User,
+        model: new Main.User(),
 
         events: {
             "submit #profileForm": "register"
@@ -95,7 +95,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
                 },
                 error: function( model, response ) {
                     var message = response.hasOwnProperty( "responseText" ) ?
-                        $.parseJSON( response.responseText ).message : 
+                        $.parseJSON( response.responseText ).message :
                         $.parseJSON( response ).message;
                     namespace.showMessageDialog( "#main", false, messageTemplate, message, 2000, namespace.app.router );
                 }
@@ -105,7 +105,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
 
     // Registered user view with order summary
     Main.Views.Role = Backbone.View.extend({
-        model: new Main.User,
+        model: new Main.User(),
 
         events: {
             "click #approveButton": "approveOrder",
@@ -116,7 +116,7 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
             var view = this,
                 localUser = $.parseJSON( localStorage.getItem( "user" ) );
             localUser.order = null;
-            this.done = done
+            this.done = done;
 
             $.ajax({
                 url: namespace.serviceURL + "/user/" + localUser.id,
@@ -187,8 +187,8 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
                         case "ORDER_ASSIGNED_TO_OTHER":
                             namespace.showMessageDialog( "#main", "#" + user.role.toLowerCase() + "/orders", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
-                        case "INVALID_USER":
                         default:
+                            // INVALID_USER errors are also captured here
                             namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
                     }
@@ -225,8 +225,8 @@ function( namespace, $, $m, Backbone, mainTemplate, roleTemplate, messageTemplat
                         case "ORDER_ASSIGNED_TO_OTHER":
                             namespace.showMessageDialog( "#main", "#" + user.role.toLowerCase() + "/orders", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
-                        case "INVALID_USER":
                         default:
+                            // INVALID_USER errors are also captured here
                             namespace.showMessageDialog( "#main", "#logout", messageTemplate, response.message, 2000, namespace.app.router );
                             break;
                     }
