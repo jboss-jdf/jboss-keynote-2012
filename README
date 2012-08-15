@@ -64,6 +64,8 @@ Accessing the Client Application
   <host>:<port>/jbossworld-client/#approver
 - VP application (password is letmein)
   <host>:<port>/jbossworld-client/#vp
+- To switch between roles, you must first logout. Once logged out, you will not be able to return to the previous role so a new role will be created when you log in again
+  <host>:<port>/jbossworld-client/#logout
 
 Running Robots
 --------------
